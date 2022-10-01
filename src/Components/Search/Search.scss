@@ -1,0 +1,74 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.search {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  // search icon
+  svg {
+    position: absolute;
+    left: $GUTTER;
+    height: $ICON_HEIGHT_MEDIUM;
+    width: auto;
+  }
+
+  // main input
+  input {
+    font-size: $FONT_SIZE_BIG;
+    border: 0;
+    border-bottom: 1px solid $COLOR_BORDER;
+    outline: 0;
+    height: 50px;
+    padding-left: $PADDING_BIG; // make room for the search icon
+    flex: 1;
+    transition: border-color $TRANSITION_TIME;
+    width: 0px;
+    border-radius: 0;
+
+    &:focus {
+      border-color: $COLOR_ACCENT;
+    }
+  }
+
+  // submit button
+  button {
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    font-size: $FONT_SIZE_MEDIUM;
+    padding: 0px $PADDING_BIG;
+    height: 50px;
+    color: $COLOR_BACKGROUND;
+    margin-left: $GUTTER;
+    background: $COLOR_ACCENT;
+    border: 1px solid $COLOR_ACCENT;
+
+    &:hover {
+      color: $COLOR_ACCENT;
+      background: $COLOR_BACKGROUND;
+    }
+
+    &:active {
+      color: $COLOR_ACCENT;
+      background: $COLOR_BACKGROUND_2;
+    }
+  }
+
+  @include tablet-version {
+    input {
+      font-size: $FONT_SIZE_MEDIUM;
+    }
+
+    svg {
+      height: $ICON_HEIGHT_SMALL;
+    }
+
+    button {
+      padding: 0px $PADDING_MEDIUM;
+    }
+  }
+}

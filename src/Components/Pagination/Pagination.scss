@@ -1,0 +1,79 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+footer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: $PADDING_SMALL;
+  z-index: $Z_INDEX_PAGINATION;
+
+  // page button
+  button {
+    outline: 0;
+    border: 0;
+    padding: $PADDING_SMALL;
+    display: flex;
+    justify-content: center;
+    margin: 0px $GUTTER;
+    cursor: pointer;
+    transition: opacity $TRANSITION_TIME;
+    background: transparent;
+    width: $PAGINATION_BUTTON_WIDTH;
+
+    &:disabled {
+      opacity: $PAGINATION_BUTTON_OPACITY_DISABLED;
+      pointer-events: none;
+    }
+
+    // content of the button
+    svg {
+      width: auto;
+      height: $ICON_HEIGHT_MEDIUM;
+    }
+
+    &:hover {
+      background: $COLOR_ACCENT;
+
+      svg path {
+        fill: $COLOR_BACKGROUND;
+      }
+    }
+
+    &:active {
+      svg path {
+        opacity: $PAGINATION_BUTTON_OPACITY_PRESSED;
+      }
+    }
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include tablet-version {
+    border-top: 1px solid $COLOR_BORDER;
+    background: $COLOR_BACKGROUND;
+    position: fixed;
+    bottom: 0px;
+    padding: 0;
+    height: $PAGINATION_TABLET_BAR_HEIGHT;
+
+    button {
+      svg {
+        height: $ICON_HEIGHT_BIG;
+      }
+    }
+  }
+
+  // We include a touchscreen check because in mobile the hover state
+  // gets "stuck" when the user clicks it and the button becomes all black,
+  // which kinda looks bad.
+  @include touchscreen() {
+    button:hover {
+      background: transparent;
+
+      svg path {
+        fill: $COLOR_ACCENT;
+      }
+    }
+  }
+}

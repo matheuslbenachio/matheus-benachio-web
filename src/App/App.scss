@@ -1,0 +1,73 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.app {
+  margin: 0 auto;
+  min-height: 100%;
+  max-width: $APP_MAX_WIDTH;
+  background: $COLOR_BACKGROUND;
+  display: flex;
+  align-items: center;
+
+  // parent of the search component
+  > .search-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $PADDING_BIG;
+    align-items: center;
+    // can't let the input be too big, otherwise it starts 'cutting' into
+    // the space of the results table:
+    max-width: 800px;
+  }
+
+  // division line between search and results
+  > .division {
+    height: $APP_DIVISION_HEIGHT;
+    width: 1px;
+    background: $COLOR_BORDER;
+    position: relative;
+    z-index: $Z_INDEX_DIVISION;
+  }
+
+  // parent of the results component
+  > .results-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $PADDING_BIG;
+    flex-direction: column;
+    position: relative;
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include tablet-version {
+    flex-direction: column;
+
+    > .division {
+      display: none;
+    }
+
+    > .search-container,
+    > .results-container {
+      width: 100%;
+      padding: 0px; // glue to the sides of the page
+      flex: none;
+    }
+
+    > .search-container {
+      // 10px to not be glued to the sides of the page
+      padding: 10px;
+      max-width: none;
+    }
+
+    > .results-container {
+      flex: 1;
+    }
+  }
+}
+

@@ -1,0 +1,117 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.results {
+  width: 100%;
+  height: $RESULTS_HEIGHT;
+
+  // Avatar column
+  .avatar-th {
+    width: $RESULTS_CELL_AVATAR_WIDTH;
+  }
+
+  // Type column
+  .type-th {
+    width: $RESULTS_CELL_TYPE_WIDTH;
+    min-width: $RESULTS_CELL_TYPE_WIDTH;
+  }
+
+  // Avatar cell in the body (not in the header)
+  .avatar-td {
+    padding-left: $PADDING_MEDIUM + $PADDING_SMALL;
+    padding-right: $PADDING_SMALL;
+
+    img {
+      width: $RESULTS_AVATAR_SIZE;
+      height: $RESULTS_AVATAR_SIZE;
+      display: flex;
+    }
+  }
+
+  .type-td {
+    background: linear-gradient(to right, rgb(255, 255, 255, 0), white);
+  }
+
+  // Login cell in the body (not in the header)
+  .login-td {
+    a {
+      text-decoration: none;
+      color: $COLOR_LINK_PRIMARY;
+      max-width: $RESULTS_CELL_LOGIN_WIDTH;
+      display: flex;
+      min-width: 0;
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+  }
+
+  table, th, td {
+    padding: $PADDING_SMALLER;
+  }
+
+  th {
+    text-align: left;
+    font-weight: normal;
+  }
+
+  tr:nth-child(even) {
+    background: $COLOR_BACKGROUND_2;
+  }
+
+  // body rows
+  tbody tr {
+    position: relative;
+    opacity: 0;
+
+    &.visible {
+      opacity: 0;
+      -webkit-animation: table-row-in-animation $TRANSITION_TIME forwards;
+              animation: table-row-in-animation $TRANSITION_TIME forwards;
+    }
+
+    &:not(.visible) {
+      opacity: 1;
+      -webkit-animation: table-row-out-animation $TRANSITION_TIME forwards;
+              animation: table-row-out-animation $TRANSITION_TIME forwards;
+    }
+  }
+
+  @include tablet-version {
+    flex: 1;
+    // compensate the absolute positioning of the pagination and creates
+    // a small gutter at the bottom of the page to allow scroll:
+    padding-bottom: $PAGINATION_TABLET_BAR_HEIGHT;
+
+    .login-td {
+      a {
+        // adjust the maximum size of the login table to compensate
+        max-width: calc(100vw - ($RESULTS_CELL_TYPE_WIDTH + $RESULTS_CELL_AVATAR_WIDTH + 50px));
+      }
+    }
+  }
+}
+
+// animation of rows appearing
+@keyframes table-row-in-animation {
+  from { top: -20px; opacity: 0 }
+  to   { top: 0px; opacity: 1 }
+}
+
+// animation of rows disappearing
+@keyframes table-row-out-animation {
+  from { top: 0px; opacity: 1 }
+  to   { top: 20px; opacity: 0 }
+}

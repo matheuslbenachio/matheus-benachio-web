@@ -1,0 +1,48 @@
+// colors
+$COLOR_BACKGROUND   : hsl(0, 0%, 100%);
+$COLOR_BACKGROUND_2 : hsl(0, 0%, 90%);
+$COLOR_BORDER       : hsl(0, 0%, 80%);
+$COLOR_ACCENT       : hsl(0, 0%, 0%);
+$COLOR_LINK_PRIMARY : hsl(211, 77%, 49%);
+
+// pagination
+$PAGINATION_BUTTON_WIDTH            : 35px;
+$PAGINATION_BUTTON_OPACITY_PRESSED  : 0.5;
+$PAGINATION_BUTTON_OPACITY_DISABLED : 0.2;
+$PAGINATION_TABLET_BAR_HEIGHT       : 60px;
+
+// app (container of search + results)
+$APP_MAX_WIDTH        : 2000px;
+$APP_DIVISION_HEIGHT  : 300px;
+
+// results table
+$RESULTS_HEIGHT            : 520px; // maximum size a table of 9 items needs
+$RESULTS_CELL_AVATAR_WIDTH : 70px;
+$RESULTS_CELL_TYPE_WIDTH   : 150px;
+$RESULTS_CELL_LOGIN_WIDTH  : 350px;
+$RESULTS_AVATAR_SIZE       : 40px;
+
+// layout properties
+$PADDING_BIG     : 50px;
+$PADDING_MEDIUM  : 15px;
+$PADDING_MEDIUM  : 15px;
+$PADDING_SMALLER : 7px;
+$PADDING_SMALL   : 5px;
+$TRANSITION_TIME : 0.25s;
+$GUTTER          : 10px;
+
+// z-indexes of the components
+$Z_INDEX_DIVISION   : 3;
+$Z_INDEX_MESSAGE    : 2;
+$Z_INDEX_PAGINATION : 1;
+
+// font-sizes
+$FONT_SIZE_MEDIUM : 20px;
+$FONT_SIZE_BIG    : 25px;
+$FONT_SIZE_BIGGER : 30px;
+$FONT_WEIGHT      : 300;
+
+// icon sizes
+$ICON_HEIGHT_SMALL  : 20px;
+$ICON_HEIGHT_MEDIUM : 25px;
+$ICON_HEIGHT_BIG    : 30px;

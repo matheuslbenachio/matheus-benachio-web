@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: $FONT_SIZE_BIGGER;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity $TRANSITION_TIME, top $TRANSITION_TIME;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $COLOR_BACKGROUND;
+  z-index: $Z_INDEX_MESSAGE;
+  opacity: 0;
+
+  // message is visible on screen
+  &.visible {
+    opacity: 1;
+  }
+
+  // message is being hidden
+  &:not(.visible) {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // query for the responsive version
+  @include tablet-version {
+    font-size: $FONT_SIZE_MEDIUM;
+  }
+}

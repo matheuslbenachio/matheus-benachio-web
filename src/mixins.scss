@@ -1,0 +1,11 @@
+@mixin tablet-version() {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin touchscreen() {
+  @media (hover: none) {
+    @content
+  }
+}
